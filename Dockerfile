@@ -3,11 +3,15 @@ FROM archlinux/archlinux:base-devel
 
 # Update the system and install necessary packages
 RUN pacman -Syu --noconfirm && \
-    pacman -S --noconfirm wget curl unzip zip git git-lfs bash && \
-    curl --tlsv1.3 -s "https://get.sdkman.io" | bash && \
-    bash -c "source "/root/.sdkman/bin/sdkman-init.sh"" && \
+    pacman -S --noconfirm wget curl unzip zip git git-lfs bash
+
+# Install SDKMAN
+RUN curl --tlsv1.3 -s "https://get.sdkman.io" | bash
+
+# Install Java using SDKMAN
+RUN bash -c "source /root/.sdkman/bin/sdkman-init.sh && \
     sdk install java 17.0.10-sem && \
-    sdk default java 17.0.10-sem
+    sdk default java 17.0.10-sem"
     
 # Set environment variables for Android SDK
 ENV ANDROID_HOME /opt/android-sdk
