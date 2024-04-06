@@ -1,9 +1,9 @@
 # Use the archlinux:base-devel image as the base
-FROM archlinux:base-devel
+FROM archlinux/archlinux:base-devel
 
 # Update the system and install necessary packages
 RUN pacman -Syu --noconfirm && \
-    pacman -S --noconfirm wget unzip git && \
+    pacman -S --noconfirm wget curl unzip zip git git-lfs && \
     curl --tlsv1.3 -s "https://get.sdkman.io" | bash && \
     sdk install java 17.0.10.0-sem
 
