@@ -3,7 +3,9 @@ FROM archlinux:base-devel
 
 # Update the system and install necessary packages
 RUN pacman -Syu --noconfirm && \
-    pacman -S --noconfirm wget unzip git
+    pacman -S --noconfirm wget unzip git && \
+    curl --tlsv1.3 -s "https://get.sdkman.io" | bash && \
+    sdk install java 17.0.10.0-sem
 
 # Set environment variables for Android SDK
 ENV ANDROID_HOME /opt/android-sdk
