@@ -21,7 +21,7 @@ RUN mkdir -p ${ANDROID_HOME}/cmdline-tools && \
     rm commandlinetools-linux-7302050_latest.zip
 
 # Accept licenses before installing components
-RUN yes | sdkmanager --licenses
+RUN bash -c "yes | sdkmanager --licenses"
 
 # Install latest versions of Android SDK Build-tools, Android SDK Platforms, Android Support Repository, CMake, NDK
 RUN sdkmanager "build-tools;34.0.0" "platforms;android-34" "extras;android;m2repository" "cmake;3.10.2.4988404" "ndk;21.3.6528147"
