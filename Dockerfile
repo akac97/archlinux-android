@@ -5,7 +5,7 @@ FROM archlinux/archlinux:base-devel
 RUN pacman -Syu --noconfirm && \
     pacman -S --noconfirm wget curl unzip zip git git-lfs bash && \
     curl --tlsv1.3 -s "https://get.sdkman.io" | bash && \
-    source "/root/.sdkman/bin/sdkman-init.sh" && \
+    bash -c "source "/root/.sdkman/bin/sdkman-init.sh"" && \
     sdk install java 17.0.10-sem && \
     bash -c "sdk default java 17.0.10-sem"
     
