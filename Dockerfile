@@ -7,7 +7,7 @@ RUN pacman -Syu --noconfirm && \
     curl --tlsv1.3 -s "https://get.sdkman.io" | bash && \
     bash -c "source "/root/.sdkman/bin/sdkman-init.sh"" && \
     sdk install java 17.0.10-sem && \
-    bash -c "sdk default java 17.0.10-sem"
+    sdk default java 17.0.10-sem
     
 # Set environment variables for Android SDK
 ENV ANDROID_HOME /opt/android-sdk
